@@ -1,0 +1,14 @@
+[Unit]
+Description=MariaDB database server for %u
+After=network.target
+
+[Service]
+Type=notify
+
+Environment=MYSQL_ROOT=%h/.local/var/lib/mysql
+Environment=MYSQL_DATA=%h/.local/var/lib/mysql/data
+
+ExecStart=/usr/bin/mysqld --datadir="${MYSQL_DATA}" --socket="${MYSQL_ROOT}/mariadb.socket"
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=PostgreSQL database server for %u
+After=network.target
+
+[Service]
+Type=notify
+
+Environment=PGROOT=%h/.local/var/lib/postgre
+Environment=PGDATA=%h/.local/var/lib/postgre/data
+
+ExecStart=/usr/bin/postgres -D "${PGDATA}" -k "${PGROOT}"
+
+[Install]
+WantedBy=default.target
