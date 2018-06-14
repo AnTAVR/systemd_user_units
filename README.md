@@ -10,7 +10,7 @@
 
     systemctl --user start mysql.service
 
-    mysqladmin -u root password 'rootroot'
+    #mysqladmin -u root password 'rootroot'
     mysql -u root -p
     CREATE USER 'tests'@'localhost' IDENTIFIED BY 'teststests';
     GRANT ALL PRIVILEGES ON *.* TO 'tests'@'localhost' WITH GRANT OPTION;
